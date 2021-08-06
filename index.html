@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<body>
+		<p>Click in the button to get your coordinates (long/lat).</p>
+		<button onclick="getLocation()">Find my Location</button>
+		<p id="demo"></p>
+		<script>
+		var x = document.getElementById("demo");
+
+		function getLocation() {
+		  if (navigator.geolocation) {
+		    navigator.geolocation.getCurrentPosition(showPosition);
+		  } else { 
+		    x.innerHTML = "Geolocation is not supported by this browser, try Mozila Firefox, Chrome, Brave, etc.";
+		  }
+		}
+
+		function showPosition(position) {
+		  x.innerHTML = "Latitude: " + position.coords.latitude + 
+		  "<br>Longitude: " + position.coords.longitude;
+		}
+		</script>
+	</body>
+</html>
+
+
+<!-- Fontes
+https://developer.mozilla.org/pt-BR/docs/Web/API/Geolocation/getCurrentPosition -
+
+https://developer.mozilla.org/pt-BR/docs/Web/API/Geolocation_API 
+
+https://www.w3schools.com/html/tryit.asp?filename=tryhtml5_geolocation -->
